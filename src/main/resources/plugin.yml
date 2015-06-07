@@ -1,0 +1,9 @@
+name: CriLisCraftRankUtils
+version: 1.0.0
+main: com.criliscraft.rankutils.CriLisCraft
+description: This plugin manages ranks on the CriLis Craft Survival server.
+author: Chaka
+website: http://criliscraft.noip.me/
+commands:
+permissions:
+  clcr.*:
