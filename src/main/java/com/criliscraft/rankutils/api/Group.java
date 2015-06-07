@@ -40,6 +40,9 @@ public class Group {
         public static final String ADMIN = ChatColor.DARK_RED + "Admin" + ChatColor.RESET;
     }
 
+    /**
+     * Returns the ChatColor of each group.
+     */
     public static class GroupColor {
         public static final ChatColor GUEST = ChatColor.WHITE;
         public static final ChatColor NEWBIE = ChatColor.GOLD;
@@ -53,6 +56,9 @@ public class Group {
         public static final ChatColor ADMIN = ChatColor.DARK_RED;
     }
 
+    /**
+     * The bukkit permission for each group.
+     */
     public static class Perm {
         public static Permission GUEST = new Permission("clcr.group.guest");
         public static Permission NEWBIE = new Permission("clcr.group.newbie");
@@ -69,6 +75,9 @@ public class Group {
         public static Permission YEAR2 = new Permission("clcr.group.2year");
     }
 
+    /**
+     * The prefix for each group.
+     */
     public static class Prefix {
         public static final String GUEST = "&f";
         public static final String NEWBIE = "&6";

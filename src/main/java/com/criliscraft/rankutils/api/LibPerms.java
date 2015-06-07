@@ -5,6 +5,10 @@ import org.bukkit.plugin.PluginManager;
 
 public class LibPerms {
 
+    /**
+     * This class makes the main class a little bit less bulky.
+     * @param pm
+     */
     public static void init(PluginManager pm) {
         pm.addPermission(CMD_RANK);
         pm.addPermission(Group.Perm.ADMIN);

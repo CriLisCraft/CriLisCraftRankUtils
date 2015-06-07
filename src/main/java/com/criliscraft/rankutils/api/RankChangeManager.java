@@ -7,6 +7,11 @@ import org.bukkit.entity.Player;
 
 public class RankChangeManager {
 
+    /**
+     * Checks a players current group based off of a permission, Then promotes them adding the proper prefix.
+     * @param player
+     * @param sender
+     */
     public static void rankUp(Player player, CommandSender sender) {
         String name = player.getName();
 
@@ -135,19 +140,33 @@ public class RankChangeManager {
         }
     }
 
-    public static void promote(String playerName) {
+    /**
+     * Promotes a player to the next group.
+     * @param playerName
+     */
+    private static void promote(String playerName) {
         CommandSender console = Bukkit.getConsoleSender();
 
         Bukkit.dispatchCommand(console, "pex promote " + playerName);
     }
 
-    public static void setPrefix(String playerName, String prefix) {
+    /**
+     * Sets a players prefix.
+     * @param playerName
+     * @param prefix
+     */
+    private static void setPrefix(String playerName, String prefix) {
         CommandSender console = Bukkit.getConsoleSender();
 
         Bukkit.dispatchCommand(console, "pex user " + playerName + " prefix " + prefix);
     }
 
-    public static void broadcastRankup(String playerName, String formattedGroup) {
+    /**
+     * Broadcasts a rankup.
+     * @param playerName
+     * @param formattedGroup
+     */
+    private static void broadcastRankup(String playerName, String formattedGroup) {
         Bukkit.broadcastMessage(ChatLib.CHAT_PREFIX + ChatColor.AQUA + playerName + ChatColor.YELLOW + ", has just been promoted to, " + formattedGroup + ChatColor.YELLOW + ".");
     }
 }

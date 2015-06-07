@@ -18,6 +18,20 @@ public class RankCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    /**
+     * The method for the /rank command.
+     * This command has a few arguments.
+     * up - Ranks a player up in their current permission ladder.
+     * down - Ranks a player down in their current permission ladder.
+     * donation - Adds the donation group to the player and sets their prefix.
+     * 1year - Adds 1year to a player and sets their prefix
+     * 2year - Adds 2year to a player and sets their prefix
+     * @param source
+     * @param cmd
+     * @param alias
+     * @param args
+     * @return true
+     */
     public boolean onCommand(CommandSender source, Command cmd, String alias, String[] args) {
 
         int length = args.length;
