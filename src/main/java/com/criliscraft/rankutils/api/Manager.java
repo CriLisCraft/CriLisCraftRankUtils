@@ -1,13 +1,19 @@
 package com.criliscraft.rankutils.api;
 
+import com.criliscraft.rankutils.CriLisCraft;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class RankChangeManager {
+public class Manager {
 
     private static CommandSender console = Bukkit.getConsoleSender();
+    private static CriLisCraft plugin = null;
+
+    public Manager(CriLisCraft plugin) {
+        this.plugin = plugin;
+    }
 
     /**
      * Checks a players current group based off of a permission, Then promotes them adding the proper prefix.
@@ -298,6 +304,80 @@ public class RankChangeManager {
      */
     private static void addGroup(String playerName, String groupName) {
         Bukkit.dispatchCommand(console, "pex user " + playerName + " group add " + groupName);
+    }
+
+    /**
+     * Adds a parmission to a user.
+     * @param playerName
+     * @param permission
+     */
+    private static void addPermission(String playerName, String permission) {
+        Bukkit.dispatchCommand(console, "pex user " + playerName + " add " + permission);
+    }
+
+    /**
+     * Adds a permission to a user for 90 days
+     * @param playerName
+     * @param permission
+     */
+    private static void addPermission90Days(String playerName, String permission) {
+        Bukkit.dispatchCommand(console, "pex user " + playerName + " timed add " + permission + " 7776000");
+    }
+
+    /**
+     * Gives a player the permissions for a pet for 90 days.
+     * It also messages them on how to use their new pet.
+     * @param player
+     * @param petType
+     */
+    public static void givePet90Days(Player player, String petType) {
+        String playerName = player.getName();
+
+        if (plugin.getConfig().getBoolean("echopet.rideall") == true) {
+            addPermission90Days(playerName, "echopet.pet.ride." + petType);
+        }
+        addPermission90Days(playerName, "echopet.pet.show");
+        addPermission90Days(playerName, "echopet.pet.hide");
+        addPermission90Days(playerName, "echopet.pet.call");
+        addPermission90Days(playerName, "echopet.pet.name");
+        addPermission90Days(playerName, "echopet.pet.type." + petType);
+        player.sendMessage(ChatLib.CHAT_PREFIX + "You may now use the following commands.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet show - Shows your hidden pet.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet hide - Hides your current pet.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet call - Summons your pet to your side.");
+        if (plugin.getConfig().getBoolean("echopet.rideall") == true) {
+            player.sendMessage(ChatLib.CHAT_PREFIX + "/pet rides - Allows you to ride your pet.");
+        }
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet name [name] - Names your pet.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet " + petType + " - Summons a pet " + petType + ".");
+    }
+
+    /**
+     * Gives a player the permissions for a pet.
+     * It also messages them on how to use their new pet.
+     * @param player
+     * @param petType
+     */
+    public static void givePet(Player player, String petType) {
+        String playerName = player.getName();
+
+        if (plugin.getConfig().getBoolean("echopet.rideall") == true) {
+            addPermission(playerName, "echopet.pet.ride." + petType);
+        }
+        addPermission(playerName, "echopet.pet.show");
+        addPermission(playerName, "echopet.pet.hide");
+        addPermission(playerName, "echopet.pet.call");
+        addPermission(playerName, "echopet.pet.name");
+        addPermission(playerName, "echopet.pet.type." + petType);
+        player.sendMessage(ChatLib.CHAT_PREFIX + "You may now use the following commands.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet show - Shows your hidden pet.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet hide - Hides your current pet.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet call - Summons your pet to your side.");
+        if (plugin.getConfig().getBoolean("echopet.rideall") == true) {
+            player.sendMessage(ChatLib.CHAT_PREFIX + "/pet rides - Allows you to ride your pet.");
+        }
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet name [name] - Names your pet.");
+        player.sendMessage(ChatLib.CHAT_PREFIX + "/pet " + petType + " - Summons a pet " + petType + ".");
     }
 
     /**

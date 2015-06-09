@@ -3,7 +3,7 @@ package com.criliscraft.rankutils.api;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 
-public class LibPerms {
+public class PermLib {
 
     /**
      * This class makes the main class a little bit less bulky.
@@ -11,6 +11,7 @@ public class LibPerms {
      */
     public static void init(PluginManager pm) {
         pm.addPermission(CMD_RANK);
+        pm.addPermission(CMD_GIVEPERM);
         pm.addPermission(Group.Perm.ADMIN);
         pm.addPermission(Group.Perm.CRILISMOD);
         pm.addPermission(Group.Perm.MODERATOR);
@@ -27,4 +28,5 @@ public class LibPerms {
     }
 
     public static Permission CMD_RANK = new Permission("clcr.cmd.rank");
+    public static Permission CMD_GIVEPERM = new Permission("clcr.cmd.giveperm");
 }

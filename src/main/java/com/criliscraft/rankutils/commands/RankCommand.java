@@ -2,8 +2,8 @@ package com.criliscraft.rankutils.commands;
 
 import com.criliscraft.rankutils.CriLisCraft;
 import com.criliscraft.rankutils.api.ChatLib;
-import com.criliscraft.rankutils.api.LibPerms;
-import com.criliscraft.rankutils.api.RankChangeManager;
+import com.criliscraft.rankutils.api.PermLib;
+import com.criliscraft.rankutils.api.Manager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -37,18 +37,18 @@ public class RankCommand implements CommandExecutor {
         int length = args.length;
 
         if (cmd.getName().equalsIgnoreCase("rank")) {
-            if (source.hasPermission(LibPerms.CMD_RANK)) {
+            if (source.hasPermission(PermLib.CMD_RANK)) {
                 if (length <= 1) {
                     source.sendMessage(ChatLib.CHAT_PREFIX + "Too few arguments.");
                 } else if (length == 2) {
                     if (args[0].equalsIgnoreCase("up")) {
                         Player player = Bukkit.getPlayer(args[1]);
-                        RankChangeManager.rankUp(player, source);
+                        Manager.rankUp(player, source);
                     } else if (args[0].equalsIgnoreCase("down")) {
                         source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
                     } else if (args[0].equalsIgnoreCase("donation")) {
                         Player player = Bukkit.getPlayer(args[1]);
-                        RankChangeManager.donation(player, source);
+                        Manager.donation(player, source);
                     } else if (args[0].equalsIgnoreCase("1year")) {
                         source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
                     } else if (args[0].equalsIgnoreCase("2year")) {
