@@ -8,12 +8,6 @@ import java.util.logging.Logger;
 
 public class CriLisCraft extends JavaPlugin {
 
-    private final Logger logger;
-
-    public CriLisCraft(Logger logger) {
-        this.logger = logger;
-    }
-
     /**
      * Is called when the plugin is being loaded.
      */
@@ -23,7 +17,7 @@ public class CriLisCraft extends JavaPlugin {
         //Register Commands
         this.getCommand("rank").setExecutor(new RankCommand(this));
 
-        this.logger.log(Level.INFO, "Enabled");
+        this.getLogger().log(Level.INFO, "Enabled");
     }
 
     /**
@@ -32,6 +26,6 @@ public class CriLisCraft extends JavaPlugin {
     @Override
     public void onDisable() {
 
-        this.logger.log(Level.INFO, "Disabled");
+        this.getLogger().log(Level.INFO, "Disabled");
     }
 }

@@ -42,22 +42,17 @@ public class RankCommand implements CommandExecutor {
                     source.sendMessage(ChatLib.CHAT_PREFIX + "Too few arguments.");
                 } else if (length == 2) {
                     if (args[0].equalsIgnoreCase("up")) {
-                        for (Player p : Bukkit.getOnlinePlayers()) {
-                            if (!(args[1].equalsIgnoreCase(p.getName()))) {
-                                source.sendMessage(ChatLib.CHAT_PREFIX + args[1] + ", is not online.");
-                                return true;
-                            }
-                        }
                         Player player = Bukkit.getPlayer(args[1]);
                         RankChangeManager.rankUp(player, source);
                     } else if (args[0].equalsIgnoreCase("down")) {
-
+                        source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
                     } else if (args[0].equalsIgnoreCase("donation")) {
-
+                        Player player = Bukkit.getPlayer(args[1]);
+                        RankChangeManager.donation(player, source);
                     } else if (args[0].equalsIgnoreCase("1year")) {
-
+                        source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
                     } else if (args[0].equalsIgnoreCase("2year")) {
-
+                        source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
                     } else {
                         source.sendMessage(ChatLib.CHAT_PREFIX + args[0] + ", is an invalid argument.");
                     }
