@@ -8,6 +8,6 @@ commands:
   rank:
     description: This command handles all rank changes.
     usage: /<command>
-  giveperm:
+  givepet:
     description: Gives a player a pet.
     usage: /<command>
