@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 
 public class RankChangeManager {
 
+    private static CommandSender console = Bukkit.getConsoleSender();
+
     /**
      * Checks a players current group based off of a permission, Then promotes them adding the proper prefix.
      * @param player
@@ -146,7 +148,6 @@ public class RankChangeManager {
      * @param player
      * @param sender
      */
-    //TODO Make this add the user to the donation group.
     public static void donation(Player player, CommandSender sender) {
 
         String name = player.getName();
@@ -164,6 +165,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.NEWBIE)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -177,6 +179,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.REGULAR)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -190,6 +193,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.VETERAN)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -203,6 +207,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.ELDER)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -216,6 +221,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.ANCIENT)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -229,6 +235,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.ASCENDED)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -242,6 +249,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.MODERATOR)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -255,6 +263,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else if (player.hasPermission(Group.Perm.CRILISMOD)) {
             if (player.hasPermission(Group.Perm.DONATOR)) {
                 player.sendMessage(ChatLib.CHAT_PREFIX + "Thank you for supporting the server.");
@@ -268,6 +277,7 @@ public class RankChangeManager {
                 }
                 broadcastDonation(name);
             }
+            addGroup(name, Group.Name.DONATOR);
         } else {
             sender.sendMessage(ChatLib.CHAT_PREFIX + name + ", Can not receive this prefix.");
         }
@@ -278,9 +288,16 @@ public class RankChangeManager {
      * @param playerName
      */
     private static void promote(String playerName) {
-        CommandSender console = Bukkit.getConsoleSender();
-
         Bukkit.dispatchCommand(console, "pex promote " + playerName);
+    }
+
+    /**
+     * Adds a group to a player.
+     * @param playerName
+     * @param groupName
+     */
+    private static void addGroup(String playerName, String groupName) {
+        Bukkit.dispatchCommand(console, "pex user " + playerName + " group add " + groupName);
     }
 
     /**
@@ -289,8 +306,6 @@ public class RankChangeManager {
      * @param prefix
      */
     private static void setPrefix(String playerName, String prefix) {
-        CommandSender console = Bukkit.getConsoleSender();
-
         Bukkit.dispatchCommand(console, "pex user " + playerName + " prefix " + prefix);
     }
 
