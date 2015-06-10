@@ -289,6 +289,303 @@ public class Manager {
         }
     }
 
+    public static void year(Player player, CommandSender sender) {
+
+        String name = player.getName();
+
+        if (player.hasPermission(Group.Perm.GUEST)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.GUEST);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.GUEST);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.GUEST);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.GUEST);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.GUEST);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.GUEST);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.NEWBIE)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.NEWBIE);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.NEWBIE);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.NEWBIE);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.NEWBIE);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.NEWBIE);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.NEWBIE);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.REGULAR)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.REGULAR);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.REGULAR);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.REGULAR);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.REGULAR);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.REGULAR);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.REGULAR);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.VETERAN)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.VETERAN);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.VETERAN);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.VETERAN);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.VETERAN);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.VETERAN);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.VETERAN);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.ELDER)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.ELDER);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.ELDER);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.ELDER);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.ELDER);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.ELDER);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.ELDER);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.ANCIENT)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.ANCIENT);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.ANCIENT);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.ANCIENT);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.ANCIENT);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.ANCIENT);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.ANCIENT);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.ASCENDED)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.ASCENDED);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.ASCENDED);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.ASCENDED);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.ASCENDED);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.ASCENDED);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.ASCENDED);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.MODERATOR)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.MODERATOR);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.MODERATOR);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.MODERATOR);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.MODERATOR);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.MODERATOR);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.MODERATOR);
+                }
+            }
+        } else if (player.hasPermission(Group.Perm.CRILISMOD)) {
+            if (player.hasPermission(Group.Perm.DONATOR)) {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.DONATOR + Group.Prefix.CRILISMOD);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR3 + Group.Prefix.DONATOR + Group.Prefix.CRILISMOD);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.DONATOR + Group.Prefix.CRILISMOD);
+                }
+            } else {
+                if (player.hasPermission(Group.Perm.YEAR1)) {
+                    removeGroup(name, Group.Name.YEAR1);
+                    addGroup(name, Group.Name.YEAR2);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.CRILISMOD);
+                } else if (player.hasPermission(Group.Perm.YEAR2)) {
+                    removeGroup(name, Group.Name.YEAR2);
+                    addGroup(name, Group.Name.YEAR3);
+                    setPrefix(name, Group.Prefix.YEAR2 + Group.Prefix.CRILISMOD);
+                } else if (player.hasPermission(Group.Perm.YEAR3)) {
+                    sender.sendMessage(ChatLib.CHAT_PREFIX + "User can not receive the tag.");
+                } else {
+                    addGroup(name, Group.Name.YEAR1);
+                    setPrefix(name, Group.Prefix.YEAR1 + Group.Prefix.CRILISMOD);
+                }
+            }
+        } else {
+            sender.sendMessage(ChatLib.CHAT_PREFIX + "Could not add tag to user.");
+        }
+    }
+
     /**
      * Promotes a player to the next group.
      * @param playerName
@@ -304,6 +601,10 @@ public class Manager {
      */
     private static void addGroup(String playerName, String groupName) {
         Bukkit.dispatchCommand(console, "pex user " + playerName + " group add " + groupName);
+    }
+
+    private static void removeGroup(String playerName, String groupName) {
+        Bukkit.dispatchCommand(console, "pex user " + playerName + " group remove " + groupName);
     }
 
     /**

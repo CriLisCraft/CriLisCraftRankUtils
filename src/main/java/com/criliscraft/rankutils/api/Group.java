@@ -22,6 +22,7 @@ public class Group {
         public static final String DONATOR = "Donator";
         public static final String YEAR1 = "1Year";
         public static final String YEAR2 = "2Year";
+        public static final String YEAR3 = "3Year";
     }
 
     /**
@@ -73,6 +74,7 @@ public class Group {
         public static Permission DONATOR = new Permission("clcr.group.donator");
         public static Permission YEAR1 = new Permission("clcr.group.1year");
         public static Permission YEAR2 = new Permission("clcr.group.2year");
+        public static Permission YEAR3 = new Permission("clcr.group.3year");
     }
 
     /**
@@ -92,5 +94,6 @@ public class Group {
         public static final String DONATOR = "&b$";
         public static final String YEAR1 = "&6[1Y]";
         public static final String YEAR2 = "&6[2Y]";
+        public static final String YEAR3 = "&6[3Y]";
     }
 }

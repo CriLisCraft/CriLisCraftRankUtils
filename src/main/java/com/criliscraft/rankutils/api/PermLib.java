@@ -25,6 +25,7 @@ public class PermLib {
         pm.addPermission(Group.Perm.DONATOR);
         pm.addPermission(Group.Perm.YEAR1);
         pm.addPermission(Group.Perm.YEAR2);
+        pm.addPermission(Group.Perm.YEAR3);
     }
 
     public static Permission CMD_RANK = new Permission("clcr.cmd.rank");

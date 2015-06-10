@@ -10,6 +10,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Map;
+
 public class RankCommand implements CommandExecutor {
 
     private final CriLisCraft plugin;
@@ -49,10 +51,9 @@ public class RankCommand implements CommandExecutor {
                     } else if (args[0].equalsIgnoreCase("donation")) {
                         Player player = Bukkit.getPlayer(args[1]);
                         Manager.donation(player, source);
-                    } else if (args[0].equalsIgnoreCase("1year")) {
-                        source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
-                    } else if (args[0].equalsIgnoreCase("2year")) {
-                        source.sendMessage(ChatLib.CHAT_PREFIX + "This is not yet implemented.");
+                    } else if (args[0].equalsIgnoreCase("year")) {
+                        Player player = Bukkit.getPlayer(args[1]);
+                        Manager.year(player, source);
                     } else {
                         source.sendMessage(ChatLib.CHAT_PREFIX + args[0] + ", is an invalid argument.");
                     }
