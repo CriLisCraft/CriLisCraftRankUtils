@@ -41,6 +41,7 @@ public class GivePetCommand implements CommandExecutor {
             } else {
                 source.sendMessage(ChatLib.NO_PERMS);
             }
+            return true;
         }
         return false;
     }

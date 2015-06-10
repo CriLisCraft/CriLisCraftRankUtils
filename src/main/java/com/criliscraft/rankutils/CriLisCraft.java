@@ -15,7 +15,8 @@ public class CriLisCraft extends JavaPlugin {
     public void onEnable() {
 
         this.getConfig().addDefault("echopet.rideall", true);
-        this.saveDefaultConfig();
+        this.getConfig().options().copyDefaults(true);
+        this.saveConfig();
 
 
         //Register Commands
@@ -30,6 +31,8 @@ public class CriLisCraft extends JavaPlugin {
      */
     @Override
     public void onDisable() {
+
+        this.saveConfig();
 
         this.getLogger().log(Level.INFO, "Disabled");
     }
